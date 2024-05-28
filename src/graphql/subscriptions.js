@@ -2,80 +2,56 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+  subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+    onCreateUser(filter: $filter) {
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+  subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+    onUpdateUser(filter: $filter) {
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+  subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+    onDeleteUser(filter: $filter) {
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+  subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
+    onCreatePost(filter: $filter) {
       id
       videoUri
       description
@@ -84,29 +60,24 @@ export const onCreatePost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+  subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
+    onUpdatePost(filter: $filter) {
       id
       videoUri
       description
@@ -115,29 +86,24 @@ export const onUpdatePost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+  subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
+    onDeletePost(filter: $filter) {
       id
       videoUri
       description
@@ -146,56 +112,84 @@ export const onDeletePost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onCreateSong = /* GraphQL */ `
-  subscription OnCreateSong {
-    onCreateSong {
+  subscription OnCreateSong($filter: ModelSubscriptionSongFilterInput) {
+    onCreateSong(filter: $filter) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onUpdateSong = /* GraphQL */ `
-  subscription OnUpdateSong {
-    onUpdateSong {
+  subscription OnUpdateSong($filter: ModelSubscriptionSongFilterInput) {
+    onUpdateSong(filter: $filter) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
 export const onDeleteSong = /* GraphQL */ `
-  subscription OnDeleteSong {
-    onDeleteSong {
+  subscription OnDeleteSong($filter: ModelSubscriptionSongFilterInput) {
+    onDeleteSong(filter: $filter) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;

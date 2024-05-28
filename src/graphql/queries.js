@@ -7,21 +7,13 @@ export const getUser = /* GraphQL */ `
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -36,14 +28,12 @@ export const listUsers = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -58,23 +48,18 @@ export const getPost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -90,26 +75,13 @@ export const listPosts = /* GraphQL */ `
         videoUri
         description
         userID
-        user {
-          id
-          username
-          email
-          imageUri
-          createdAt
-          updatedAt
-        }
         songID
-        song {
-          id
-          name
-          imageUri
-          createdAt
-          updatedAt
-        }
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
     }
   }
 `;
@@ -117,10 +89,21 @@ export const getSong = /* GraphQL */ `
   query GetSong($id: ID!) {
     getSong(id: $id) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -133,12 +116,76 @@ export const listSongs = /* GraphQL */ `
     listSongs(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
         imageUri
+        songID
         createdAt
         updatedAt
+        __typename
       }
       nextToken
+      __typename
+    }
+  }
+`;
+export const postsByIdAndUserID = /* GraphQL */ `
+  query PostsByIdAndUserID(
+    $id: ID!
+    $userID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    postsByIdAndUserID(
+      id: $id
+      userID: $userID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const songsByIdAndSongID = /* GraphQL */ `
+  query SongsByIdAndSongID(
+    $id: ID!
+    $songID: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSongFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    songsByIdAndSongID(
+      id: $id
+      songID: $songID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        imageUri
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
     }
   }
 `;

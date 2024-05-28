@@ -10,21 +10,13 @@ export const createUser = /* GraphQL */ `
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -37,21 +29,13 @@ export const updateUser = /* GraphQL */ `
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -64,21 +48,13 @@ export const deleteUser = /* GraphQL */ `
       id
       username
       email
-      imageUri
       posts {
-        items {
-          id
-          videoUri
-          description
-          userID
-          songID
-          createdAt
-          updatedAt
-        }
         nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -96,23 +72,18 @@ export const createPost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -130,23 +101,18 @@ export const updatePost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -164,23 +130,18 @@ export const deletePost = /* GraphQL */ `
         id
         username
         email
-        imageUri
-        posts {
-          nextToken
-        }
         createdAt
         updatedAt
+        __typename
       }
       songID
-      song {
-        id
-        name
-        imageUri
-        createdAt
-        updatedAt
+      songs {
+        nextToken
+        __typename
       }
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -191,10 +152,21 @@ export const createSong = /* GraphQL */ `
   ) {
     createSong(input: $input, condition: $condition) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -205,10 +177,21 @@ export const updateSong = /* GraphQL */ `
   ) {
     updateSong(input: $input, condition: $condition) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
@@ -219,10 +202,21 @@ export const deleteSong = /* GraphQL */ `
   ) {
     deleteSong(input: $input, condition: $condition) {
       id
-      name
+      name {
+        id
+        videoUri
+        description
+        userID
+        songID
+        createdAt
+        updatedAt
+        __typename
+      }
       imageUri
+      songID
       createdAt
       updatedAt
+      __typename
     }
   }
 `;
